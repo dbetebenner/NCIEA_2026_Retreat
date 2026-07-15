@@ -314,6 +314,34 @@ AI makes each pass **faster and easier**, so a **vicious** loop can spin just as
 :::
 
 
+## The efficiency paradox
+
+The promise of automation is a **dividend**: time saved on rote work, freed up for more **thoughtful, dedicated** work.
+
+- But efficiency on a task can quietly invite **more of that task**.
+- **Email is the clean case:** AI helps you read, compose, and reply faster — so you send more. Your recipients, *also* using AI, reply more.
+- The loop clears faster **and fills faster**. The dividend gets spent on **volume**, not depth.
+
+::: {.key-insight}
+**A dividend you don't spend deliberately gets spent for you.** Decide what the freed-up time is *for* — or the loop just manufactures more work.
+:::
+
+::: {.notes}
+13:00–13:50. The subtle one. Automation is *supposed* to buy time for better work; the trap is that the efficiency gets absorbed by more volume instead of reallocated. Email is the perfect example — and it compounds, because the person on the other end is also using AI, so both sides generate more. Analogy if it helps: widening a highway just induces more traffic. The design move: decide up front what the dividend is *for*, or it evaporates. Running long? Deliver this and the previous slide quickly.
+:::
+
+
+## This talk is a workflow, too
+
+Everything you've seen came out of one attempt: build a repeatable **workflow for turning ideas into talks** — by asking the same question, *what am I actually doing?*
+
+![The same shape as the software pipeline from earlier — named steps, AI helping inside each, and a human review gate before it ships.](Figures/idea-to-talk-pipeline.svg){width="80%" fig-alt="A pipeline: Idea, then Outline, then Draft and design, then a Review gate marked 'human check' with a green check, then Present."}
+
+::: {.notes}
+13:50–14:20. Come clean — this deck *is* the example. I took a vague idea and gave it the same treatment I'm recommending: named the steps, put AI in the loop inside each one (outlining, drafting, building these very diagrams), and kept a human review gate before it shipped. The green check is the same check from the CI slide earlier — deliberate callback. The point: the method is portable enough that it built the thing you're watching right now.
+:::
+
+
 ## Takeaways {.smaller}
 
 1. **Name your workflow.** Ask *what am I actually doing?* until the sea of apps becomes a short list of steps.
@@ -326,7 +354,7 @@ AI makes each pass **faster and easier**, so a **vicious** loop can spin just as
 :::
 
 ::: {.notes}
-13:45–14:45. Four takeaways, one per finger. Read them crisply. End on the closing insight — it's the one-sentence version of the whole talk. Then hand off.
+14:20–14:50. Four takeaways, one per finger. Read them crisply. End on the closing insight — it's the one-sentence version of the whole talk. Then hand off.
 :::
 
 
@@ -345,5 +373,5 @@ Happy to take questions in the group Q&A.
 :::
 
 ::: {.notes}
-14:45–15:00. Close. Restate the title question as the thing to walk away chewing on. Note Q&A is with the whole group at the end. Stop talking.
+14:50–15:00. Close. Restate the title question as the thing to walk away chewing on. Note Q&A is with the whole group at the end. Stop talking.
 :::
