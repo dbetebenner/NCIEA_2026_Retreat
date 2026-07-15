@@ -1,0 +1,349 @@
+---
+title: "What Am I Actually Doing?"
+subtitle: "AI-Supported Workflows in Educational Measurement"
+author:
+  - name: "Damian W. Betebenner"
+    affiliation: "National Center for the Improvement of Educational Assessment"
+date: 2026-07-15
+date-format: "[NCIEA Staff Retreat · Brown-Bag · ]MMMM YYYY"
+format:
+  revealjs:
+    theme: [default, styles/presentation-theme.scss]
+    slide-number: true
+    transition: fade
+    transition-speed: fast
+    width: 1920
+    height: 1080
+    margin: 0.06
+    center: false
+    hash: true
+    history: true
+    controls: true
+    progress: true
+    html-math-method: mathml
+    fig-align: center
+    embed-resources: true
+    include-in-header:
+      - text: |
+          <link rel="preload" href="assets/fonts/NotoSansMath.woff2" as="font" type="font/woff2" crossorigin>
+          <style>
+            @font-face {
+              font-family: "Noto Sans Math";
+              src: url("assets/fonts/NotoSansMath.woff2") format("woff2");
+              font-display: swap;
+            }
+          </style>
+    include-after-body:
+      - text: |
+          <script src="styles/presentation-figure-modal.js"></script>
+execute:
+  echo: false
+  warning: false
+---
+
+## The next 15 minutes {.center}
+
+::: {.visually-hidden}
+Roadmap for the talk
+:::
+
+::: {style="font-size: 1.1em;"}
+1. What a **workflow** actually is
+2. What workflows look like **in the wild** — and where they get **structured**
+3. How **AI** supports a workflow
+4. Why workflows **loop** — and why the direction of the loop is everything
+:::
+
+::: {.key-insight}
+**One question runs through the whole talk:** *what am I actually doing here?* You can't get help — from a colleague or from AI — with work you can't yet see.
+:::
+
+::: {.notes}
+0:00–0:30. Set expectations. Q&A is at the very end, after everyone, so I'll keep moving. The through-line is the introspective question in the title. Don't linger — move to the first section.
+:::
+
+
+# What is a workflow? {.center}
+
+::: {.visually-hidden}
+Section one: what is a workflow
+:::
+
+::: {.notes}
+Section marker. ~3–4 minutes for this whole first part. Keep it conversational — this is the "meet people where they are" section.
+:::
+
+
+## A workflow is just: how the work actually gets done
+
+- Not the org chart. Not the project plan. The **real sequence of steps** — clicks, copies, saves, sends — that turns a request into a finished thing.
+- For most of us it's **undocumented** and lives only in our heads and our habits.
+- And it is almost never one tool. It's a **relay across many tools**, with **you** carrying the baton between them.
+
+::: {.key-insight}
+**If you've ever exported from one app just to paste into another, you were the connector between two steps of a workflow.**
+:::
+
+::: {.notes}
+0:30–1:30. Define workflow in plain language. The point: everyone in this room runs workflows all day; they just don't call them that. The export-and-paste line usually gets a knowing nod. Teeing up the next slide's picture.
+:::
+
+
+## Workflows in the wild
+
+![A typical day: one person hand-carrying work between a dozen apps, across laptop, phone, and browser.](Figures/workflow-in-the-wild.svg){width="66%" fig-alt="A person labeled 'You' at the center, connected by tangled lines to app chips: Outlook, Word, Excel, Chrome, Teams, Zoom, PDFs, Slides, and R. Caption: you are the integration layer."}
+
+::: {.notes}
+1:30–2:45. This is the mirror-held-up-to-the-room slide. Walk the picture: email in Outlook, data in Excel, a report in Word, references in Chrome, a meeting in Zoom, analysis in R — and the only thing connecting them is a human moving between them, on more than one device. Land the caption out loud: "you are the integration layer." That's not a complaint — it's a description. Hold a beat.
+:::
+
+
+## The tell: coordination is invisible work
+
+::: {.columns}
+::: {.column width="54%"}
+- The apps are visible. The **coordination between them** is not.
+- It lives in memory, sticky notes, and "I'll remember to update that later."
+- It's where things **fall through**: the stale number, the version that didn't get sent, the step you redo every single time.
+:::
+::: {.column width="42%"}
+::: {.key-insight-box}
+::: {.key-insight-box-title}
+The reframe
+:::
+The bottleneck usually isn't any one app. It's the **hand-offs** — and those are exactly what a human keeps in their head.
+:::
+:::
+:::
+
+::: {.notes}
+2:45–3:45. The cost of being the integration layer is that the most important part of the work — the seams — is the part nobody can see, including us. Name a concrete failure everyone recognizes (a number that went stale between the spreadsheet and the report). This sets up why "structure" matters next.
+:::
+
+
+# Where structure exists {.center}
+
+::: {.visually-hidden}
+Section two: structured workflows
+:::
+
+::: {.notes}
+Transition. ~2–3 minutes. We've seen the messy end of the spectrum. Now the other end — a field that made its workflows explicit. Software.
+:::
+
+
+## Some fields wrote their workflow down
+
+Software developers hit the same problem years ago: too many manual hand-offs, too many things falling through. Their answer was to make the workflow **explicit and automatic**.
+
+![Every change runs the same named steps automatically, and each step reports pass or fail before anything moves forward.](Figures/ci-pipeline.svg){width="72%" fig-alt="A pipeline: saving a change triggers Test, then Build, then Deploy, each with an automatic green check underneath."}
+
+::: {.notes}
+3:45–5:00. Introduce CI ("continuous integration") without jargon: whenever someone changes the work, a checklist runs by itself. Test → build → publish, and it either passes or it stops. Emphasize the green checks: the machine does the checking, every time, the same way. This is a workflow that watches itself.
+:::
+
+
+## The same idea, in three lines
+
+::: {.columns}
+::: {.column width="46%"}
+```yaml
+when:  a change is saved
+do:    run the checks
+then:  publish only if ✓
+```
+
+Not real code you need to read — just the **shape**: a trigger, the steps, and a gate that won't let broken work through.
+:::
+::: {.column width="50%"}
+::: {.key-insight}
+**What structure buys you:** the workflow becomes **named** (you can point at each step), **automatic** (it runs without you remembering), and **observable** (you can see where it passed or failed).
+:::
+
+Most of our workflows have none of these three. That's the gap AI can help close.
+:::
+:::
+
+::: {.notes}
+5:00–6:15. The tiny snippet is a prop, not code to read — say that explicitly so non-technical folks relax. The three properties (named, automatic, observable) are the payoff of the whole section; repeat them. Then the pivot: our everyday workflows are none of these — and closing that gap is where AI comes in.
+:::
+
+
+# How AI supports a workflow {.center}
+
+::: {.visually-hidden}
+Section three: how AI supports workflows
+:::
+
+::: {.notes}
+Transition to the core of the talk. ~3 minutes. The key move is NOT "AI does my job." It's "AI helps me see and then strengthen the seams."
+:::
+
+
+## First move: introspection, not automation
+
+Before automating anything, answer the title question — *what am I actually doing?* Turn the sea of apps into a handful of **named components** and the **connections** between them.
+
+![Naming the components turns an undifferentiated pile of apps into a workflow you can actually reason about.](Figures/introspection.svg){width="70%" fig-alt="On the left a scattered cloud of apps; an arrow labeled 'what am I actually doing?' points to five named, connected steps on the right: gather, analyze, draft, review, share."}
+
+::: {.notes}
+6:15–7:30. The single most useful thing AI does early is help you narrate your own workflow back to yourself. Describe a task to it in plain words and it will help you break it into gather → analyze → draft → review → share. Once the components are named, each connection becomes a candidate for help. You can't improve a blur; you can improve a list.
+:::
+
+
+## AI plugs in at the seams
+
+::: {.columns}
+::: {.column width="52%"}
+Once the steps are named, AI helps **inside a step** and **between steps**:
+
+- **Inside:** draft the memo, clean the columns, summarize the PDF, write the R snippet.
+- **Between:** carry context from one step to the next so *you* aren't the only thing holding it.
+:::
+::: {.column width="44%"}
+::: {.theorem-box}
+::: {.theorem-box-title}
+The role AI plays
+:::
+Not a replacement for the human in the loop — a **second worker** you delegate pieces to, while you keep judgment, direction, and the final call.
+:::
+:::
+:::
+
+::: {.notes}
+7:30–8:30. Two places AI helps: within a task and at the hand-offs. Stress the hand-offs — that invisible coordination work from earlier is exactly what AI is good at carrying. And keep the guardrail visible: you stay in the loop; AI is the second pair of hands, not the decision-maker.
+:::
+
+
+## A real example: going deeper, not just faster
+
+::: {.columns}
+::: {.column width="56%"}
+In my own research I've been chasing a genuinely **hard methods question** — one I'd normally have to simplify just to make tractable.
+
+With AI inside the workflow I could:
+
+- **stress-test** many more cases and assumptions than I'd check by hand,
+- **formalize** arguments more carefully, and
+- **keep going** down paths I'd usually abandon for time.
+:::
+::: {.column width="42%"}
+::: {.key-insight-box}
+::: {.key-insight-box-title}
+The surprising part
+:::
+The value wasn't mostly **speed**. It was **reach** — AI let me go **deeper** into the problem than I could have alone.
+:::
+:::
+:::
+
+::: {.notes}
+8:30–9:45. Keep this high-level — no math. The honest headline: people expect AI to save time, and it does, but the bigger effect for hard analytic work was depth. It let me pursue the version of the question I'd otherwise have rounded off. I stayed fully responsible for every claim — AI extended my reach, it didn't replace my judgment. This is the emotional center of the talk; slow down here.
+:::
+
+
+## Depth is the real dividend
+
+::: {.key-insight}
+**For a sea-of-apps workflow, AI's first gift is clarity** — seeing what you do. **For a hard analytic workflow, its gift is depth** — going further into what you do than time and working memory normally allow.
+:::
+
+- Same tool, two different wins, depending on where you start.
+- Both only land if you've done the introspection first — you have to know what you're doing to hand any of it off.
+
+::: {.notes}
+9:45–10:30. Tie the two halves of the talk together: clarity for the messy workflows, depth for the hard ones. Both depend on the introspection step. Then pivot to the last idea — this all gets more powerful, and more dangerous, when the workflow repeats.
+:::
+
+
+# Workflows loop {.center}
+
+::: {.visually-hidden}
+Section four: workflows loop
+:::
+
+::: {.notes}
+Final section. ~3 minutes. The most important conceptual point of the talk. Don't rush it even if time is tight — cut earlier notes instead.
+:::
+
+
+## Good workflows feed back into themselves
+
+- Most real work isn't one pass — it **repeats**. This quarter's report is next quarter's starting point.
+- What you **learn** in one pass can be **fed back** to make the next pass better.
+- That feedback is what turns a workflow into a **loop** — and loops **compound**.
+
+::: {.key-insight}
+**Compounding is the whole game.** A small improvement fed back every cycle grows; a small error fed back every cycle also grows.
+:::
+
+::: {.notes}
+10:30–11:30. Introduce iteration. The report-to-report example makes it concrete. The key word is compounding: loops don't add, they multiply. Which means the direction matters enormously — setup for the next slide.
+:::
+
+
+## The same loop runs both ways
+
+![The machinery is identical; only the thing you feed back differs. Checked learning compounds upward; unchecked output compounds downward.](Figures/virtuous-vicious-loop.svg){width="74%" fig-alt="Two loops. Left, a virtuous cycle in green spiraling up: do, learn, verify, improve. Right, a vicious cycle in red spiraling down: do, skip the check, error compounds, drift. Caption: same loop, what you feed back sets the direction."}
+
+::: {.notes}
+11:30–12:45. Walk both rings. Left: do the work, learn from it, verify it, feed the verified lesson back — you climb. Right: same loop, but skip the check, and the error rides the loop back in, compounds, and you drift. The punchline is the caption: the loop is neutral. What you choose to feed back sets the direction. Verification is the fork in the road.
+:::
+
+
+## AI makes the loop faster — in both directions
+
+::: {.columns}
+::: {.column width="49%"}
+::: {.warning-box}
+::: {.warning-box-title}
+The risk
+:::
+AI makes each pass **faster and easier**, so a **vicious** loop can spin just as fast: unchecked output feeds the next prompt, small errors harden into assumptions, and quality **drifts** while it still feels productive.
+:::
+:::
+::: {.column width="49%"}
+::: {.key-insight}
+**The safeguard is boring and it works:** keep a **human check** on what gets fed back. Verify before you loop. The check is what points a fast loop **up** instead of **down**.
+:::
+:::
+:::
+
+::: {.notes}
+12:45–13:45. Be honest about the downside — this is what earns trust with a skeptical room. AI accelerates whatever loop you're in, including a bad one, and a vicious loop feels productive right up until it isn't. The defense isn't sophisticated: it's keeping a human verification step on the feedback. That single habit is the difference between compounding improvement and compounding drift.
+:::
+
+
+## Takeaways {.smaller}
+
+1. **Name your workflow.** Ask *what am I actually doing?* until the sea of apps becomes a short list of steps.
+2. **Find the seams.** The hand-offs between steps are the hidden work — and where AI helps most.
+3. **Put AI in the loop, keep yourself in it too.** Delegate the pieces; hold the judgment and the final call.
+4. **Watch the direction of the cycle.** Verify what you feed back — that's what keeps a fast loop virtuous.
+
+::: {.key-insight}
+**AI didn't replace my workflow. It made me finally look at it — and then it let me go deeper than I could alone.**
+:::
+
+::: {.notes}
+13:45–14:45. Four takeaways, one per finger. Read them crisply. End on the closing insight — it's the one-sentence version of the whole talk. Then hand off.
+:::
+
+
+## Thank you {.center}
+
+::: {style="text-align: center; padding-top: 1em;"}
+::: {.conference-badge}
+NCIEA Staff Retreat · Brown-Bag
+:::
+
+**What am I actually doing?**
+
+::: {style="font-size: 0.7em; color: #7c7c7c;"}
+Happy to take questions in the group Q&A.
+:::
+:::
+
+::: {.notes}
+14:45–15:00. Close. Restate the title question as the thing to walk away chewing on. Note Q&A is with the whole group at the end. Stop talking.
+:::
