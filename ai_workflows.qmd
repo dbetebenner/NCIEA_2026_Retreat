@@ -348,13 +348,97 @@ Everything you've seen came out of one attempt: build a repeatable **workflow fo
 2. **Find the seams.** The hand-offs between steps are the hidden work — and where AI helps most.
 3. **Put AI in the loop, keep yourself in it too.** Delegate the pieces; hold the judgment and the final call.
 4. **Watch the direction of the cycle.** Verify what you feed back — that's what keeps a fast loop virtuous.
+5. **Expect it to feel different.** Working with AI is a back-and-forth, not solo craft. If you love the **craftsmanship** of doing it yourself, the chatbot to-and-fro can feel uncomfortable — even off-putting. It's a genuinely different way of working. It's also, most likely, where the work is heading.
 
 ::: {.key-insight}
 **AI didn't replace my workflow. It made me finally look at it — and then it let me go deeper than I could alone.**
 :::
 
 ::: {.notes}
-14:20–14:50. Four takeaways, one per finger. Read them crisply. End on the closing insight — it's the one-sentence version of the whole talk. Then hand off.
+14:15–14:40. Five takeaways. Read the first four crisply. Slow down on #5 and be honest: this is a real barrier for good people. Plenty of skilled colleagues — coders especially — love the craft of doing the work by hand and dislike narrating it to a chatbot. That reaction is legitimate, not a failing. The pitch isn't "you'll love it"; it's "it's different, it's learnable, and it's where things are heading — worth getting reps in now." Then the closing insight is the one-sentence version of the whole talk.
+:::
+
+
+## If you want to go further
+
+Take this home: hand the talk to your own AI and let it interview *you*.
+
+```{=html}
+<style>
+  .go-further { margin-top: 0.2em; }
+  .go-further .step { font-size: 24px; line-height: 1.4; margin: 0.15em 0 0.55em; }
+  .go-further .step-n {
+    display: inline-block; background: var(--color-primary); color: #fff;
+    font-family: 'Josefin Sans', system-ui, sans-serif; font-weight: 600;
+    padding: 2px 12px; border-radius: 6px; margin-right: 10px; font-size: 20px;
+  }
+  .go-further .go-url {
+    color: var(--color-primary); font-family: 'Noto Sans Mono', monospace;
+    font-size: 20px; word-break: break-all;
+  }
+  .go-further .copy-btn {
+    float: right; font-family: 'Josefin Sans', system-ui, sans-serif; font-weight: 600;
+    font-size: 17px; color: #fff; background: var(--color-primary); border: none;
+    border-radius: 6px; padding: 6px 16px; cursor: pointer; transition: background 0.15s ease;
+  }
+  .go-further .copy-btn:hover { background: #2980B9; }
+  .go-further .copy-btn.copied { background: #27ae60; }
+  .go-further .prompt-box {
+    width: 100%; box-sizing: border-box; margin-top: 8px;
+    font-family: 'Noto Sans Mono', monospace; font-size: 18px; line-height: 1.4;
+    color: var(--color-text); background: #fff; border: 1px solid var(--color-border);
+    border-radius: 8px; padding: 14px 16px; resize: none;
+  }
+</style>
+<div class="go-further">
+  <div class="step">
+    <span class="step-n">Step 1</span>Give the AI the talk — paste this URL:
+    <a class="go-url" href="https://github.com/dbetebenner/NCIEA_2026_Retreat/blob/main/ai_workflows.qmd" target="_blank" rel="noopener">github.com/dbetebenner/NCIEA_2026_Retreat/blob/main/ai_workflows.qmd</a>
+  </div>
+  <div class="step">
+    <span class="step-n">Step 2</span>Give it this prompt, then paste it right after the URL:
+    <button class="copy-btn" type="button" onclick="copyGoFurther(this)" aria-label="Copy the prompt to your clipboard">Copy prompt</button>
+  </div>
+  <textarea id="go-further-prompt" class="prompt-box" readonly rows="15" aria-label="Prompt to give your AI">I just watched a 15-minute talk, "What Am I Actually Doing? — AI-Supported Workflows." The slides are here: https://github.com/dbetebenner/NCIEA_2026_Retreat/blob/main/ai_workflows.qmd
+
+Please read that presentation first so we share its language — workflows, the hand-offs (or "seams") between steps, the introspection question "what am I actually doing?", virtuous vs. vicious loops, and keeping a human check on whatever gets fed back into the loop.
+
+Then be my thinking partner — don't hand me a plan yet. Start by interviewing me. Ask several questions, a few at a time, to help me surface what I actually do in a normal week: the tasks I repeat, the apps I move between, where work gets stuck or falls through the cracks, and what I would do with more time if I had it.
+
+Once you understand my real workflow, help me:
+1. Name it — turn my sea of apps into a short list of steps and the hand-offs between them.
+2. Find the seams where AI could help most, both inside a step and between steps.
+3. For each, suggest concretely how to use AI to get better outcomes — faster, higher quality, and more broadly shared — while I stay in the loop with a human check on what I feed back.
+
+Keep it specific to me, ask before assuming, and tell me honestly if I'm describing a vicious loop rather than a virtuous one.</textarea>
+</div>
+<script>
+  function copyGoFurther(btn) {
+    var ta = document.getElementById('go-further-prompt');
+    var text = ta.value;
+    function done() {
+      var old = btn.textContent;
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      setTimeout(function () { btn.textContent = old; btn.classList.remove('copied'); }, 1800);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () {
+        ta.removeAttribute('readonly'); ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        ta.setAttribute('readonly', ''); done();
+      });
+    } else {
+      ta.removeAttribute('readonly'); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      ta.setAttribute('readonly', ''); done();
+    }
+  }
+</script>
+```
+
+::: {.notes}
+14:40–14:55. The "take it home" slide — leave it up during Q&A. Two steps: give the AI the deck, then paste the prompt (there's a copy button on the slide). The prompt makes the AI interview *them* first, then help them name their workflow and find where AI fits. Tell them the deck and this prompt will be shared so they don't need to copy anything down now.
 :::
 
 
@@ -373,5 +457,5 @@ Happy to take questions in the group Q&A.
 :::
 
 ::: {.notes}
-14:50–15:00. Close. Restate the title question as the thing to walk away chewing on. Note Q&A is with the whole group at the end. Stop talking.
+14:55–15:00. Close. Restate the title question as the thing to walk away chewing on. Note Q&A is with the whole group at the end. Stop talking.
 :::
