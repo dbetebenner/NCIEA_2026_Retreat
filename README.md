@@ -1,7 +1,7 @@
 # AI-Supported Workflows — Brown-Bag (15 min)
 
 Staff retreat brown-bag on AI-supported workflows. Built with the
-[NCIEA Presentation Template](../../NCIEA_Presentation_Template).
+[NCIEA Presentation Template](../../Quarto_Presentation_Template).
 
 ## Present it
 
