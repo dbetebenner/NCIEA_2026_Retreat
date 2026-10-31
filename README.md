@@ -3,7 +3,7 @@
 Part of Damian Betebenner's talks: <https://dbetebenner.github.io/talks/>
 
 Staff retreat brown-bag on AI-supported workflows. Built with the
-[NCIEA Presentation Template](https://github.com/dbetebenner/NCIEA_Presentation_Template).
+[Quarto Presentation Template](https://github.com/dbetebenner/Quarto_Presentation_Template).
 
 ## Present it
 
